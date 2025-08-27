@@ -5,9 +5,9 @@ import { usePathname } from 'next/navigation';
 
 const navItems = [
   { name: 'Home', path: '/' },
+  { name: 'Work', path: '/work' },
   { name: 'About', path: '/about' },
   { name: 'Contact', path: '/contact' },
-  { name: 'Work', path: '/work' },
 ];
 
 export default function HeaderNavBar() {
