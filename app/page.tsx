@@ -1,32 +1,30 @@
-'use client';
-
-import { Button } from '@/components/ui/button';
-import { useState } from 'react';
+import MainAbout from '@/components/main-about/main-about';
+import MainContact from '@/components/main-contact/main-contact';
+import MainWork from '@/components/main-work/main-work';
+import MainHero from '@/components/main-hero/main-hero';
 
 export default function Home() {
-  const [count, setCount] = useState<number>(0);
-
-  const onClick = () => {
-    setCount(count + 1);
-  };
-
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Button onClick={onClick}>Click me mate! {count}</Button>
-        <Button variant="secondary">Secondary</Button>
-        <Button variant="destructive">Destructive</Button>
-        <Button variant="outline">Outline</Button>
-        <Button variant="ghost">Ghost</Button>
-        <Button variant="link">Link</Button>
-        <Button variant="default">Default</Button>
-        <Button variant="default" size="sm">
-          Default
-        </Button>
-        <Button variant="default" size="lg">
-          Default
-        </Button>
-      </main>
-    </div>
+    <>
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <MainHero />
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-black/20">
+        <MainAbout />
+      </section>
+
+      {/* Work Section */}
+      <section id="work" className="py-20 px-4 sm:px-6 lg:px-8">
+        <MainWork />
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-black/20">
+        <MainContact />
+      </section>
+    </>
   );
 }
