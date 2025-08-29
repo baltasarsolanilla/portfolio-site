@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import avatarImg from '@/app/assets/avatarImg.png';
+import avatarImg from '@/assets/avatarImg.png';
 
 export default function AboutMe() {
   return (
