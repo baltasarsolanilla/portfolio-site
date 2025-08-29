@@ -21,7 +21,7 @@ jobs:
         run: npm run type-check
 
       - name: Run test
-        run: echo "ADD JEST"
+        run: npm run test
 
       - name: Build project
         run: npm run build
