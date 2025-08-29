@@ -1,8 +1,8 @@
 import { Badge } from '@/components/ui/badge';
 import WorkCard from '@/app/(home)/sections/my-work/work-card';
-import eyeonitImg from '@/app/assets/jobs/eyeonit.png';
-import telstraImg from '@/app/assets/jobs/telstra.png';
-import technisysImg from '@/app/assets/jobs/technisys.jpg';
+import eyeonitImg from '@/assets/jobs/eyeonit.png';
+import telstraImg from '@/assets/jobs/telstra.png';
+import technisysImg from '@/assets/jobs/technisys.jpg';
 import { type WorkCardProps } from '@/app/(home)/sections/my-work/work-card';
 
 const WORKS_DATA: WorkCardProps[] = [
