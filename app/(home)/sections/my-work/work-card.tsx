@@ -1,8 +1,8 @@
 import { Badge } from '@/components/ui/badge';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
 export type WorkCardProps = {
-  src: any;
+  src: StaticImageData;
   title: string;
   description: string;
   skills: string[];

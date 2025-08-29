@@ -1,4 +1,3 @@
-import { Badge } from '@/components/ui/badge';
 import WorkCard from '@/app/(home)/sections/my-work/work-card';
 import eyeonitImg from '@/assets/jobs/eyeonit.png';
 import telstraImg from '@/assets/jobs/telstra.png';

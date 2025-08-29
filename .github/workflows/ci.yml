@@ -17,6 +17,27 @@ jobs:
       - name: Run linting
         run: npm run lint
 
+      - name: Debug TypeScript Configuration
+        run: |
+          echo "=== PROJECT STRUCTURE ==="
+          find . -name "*.d.ts" -type f | head -20
+          echo ""
+          echo "=== CHECKING FOR IMAGE FILE ==="
+          ls -la assets/avatarImg.png || echo "❌ Image not found at assets/"
+          ls -la assets/avatarImg.png || echo "❌ Image not found at assets/"
+          echo ""
+          echo "=== FIND IMAGE ANYWHERE ==="
+          find . -name "avatarImg.png" -type f || echo "❌ Image not found anywhere"
+          echo ""
+          echo "=== TYPESCRIPT CONFIG ==="
+          cat tsconfig.json | grep -A 10 -B 5 "include\|paths\|baseUrl" || echo "No paths config found"
+          echo ""
+          echo "=== TYPE DECLARATIONS ==="
+          cat types/images.d.ts 2>/dev/null || cat types/images.d.ts 2>/dev/null || echo "❌ No images.d.ts found"
+          echo ""
+          echo "=== TYPESCRIPT SEES THESE FILES ==="
+          npx tsc --listFiles --noEmit | grep -E "\.(d\.ts|png)" | head -10
+
       - name: Run type check
         run: npm run type-check
 
