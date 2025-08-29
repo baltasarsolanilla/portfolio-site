@@ -1,9 +1,9 @@
 import { Badge } from '@/components/ui/badge';
-import WorkCard from './work-card';
+import WorkCard from '@/app/(home)/sections/my-work/work-card';
 import eyeonitImg from '@/app/assets/jobs/eyeonit.png';
 import telstraImg from '@/app/assets/jobs/telstra.png';
 import technisysImg from '@/app/assets/jobs/technisys.jpg';
-import { type WorkCardProps } from '@/components/main-work/work-card';
+import { type WorkCardProps } from '@/app/(home)/sections/my-work/work-card';
 
 const WORKS_DATA: WorkCardProps[] = [
   {
@@ -26,7 +26,7 @@ const WORKS_DATA: WorkCardProps[] = [
   },
 ];
 
-export default function MainWork() {
+export default function MyWork() {
   return (
     <div className="max-w-7xl mx-auto">
       <h2 className="text-4xl font-bold text-center mb-16">My work</h2>
