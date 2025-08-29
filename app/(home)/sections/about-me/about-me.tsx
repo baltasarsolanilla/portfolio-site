@@ -17,7 +17,7 @@ export default function AboutMe() {
           <p className="text-lg text-gray-300 mb-6">
             With a solid foundation in web development and a curious mind, I am
             always learning new technologies and methodologies to stay up to
-            date with the latest development trends.
+            date with the latest development trends...
           </p>
           <div className="flex flex-wrap gap-2">
             <span className="px-3 py-1 bg-purple-600/20 border border-purple-500/30 rounded-full text-sm">
