@@ -1,6 +1,6 @@
 'use client';
 
-import NavLink from './nav-link';
+import NavLink from './header-nav-link';
 import { usePathname } from 'next/navigation';
 
 const navItems = [

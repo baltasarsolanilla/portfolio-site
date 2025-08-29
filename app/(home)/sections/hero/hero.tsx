@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 
-export default function MainHero() {
+export default function Hero() {
   return (
     <div className="max-w-7xl mx-auto text-center">
       <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-purple-300 bg-clip-text text-transparent">

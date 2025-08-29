@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import avatarImg from '../../app/assets/avatarImg.png';
+import avatarImg from '@/app/assets/avatarImg.png';
 
-export default function MainAbout() {
+export default function AboutMe() {
   return (
     <div className="max-w-7xl mx-auto">
       <h2 className="text-4xl font-bold text-center mb-16">About me</h2>

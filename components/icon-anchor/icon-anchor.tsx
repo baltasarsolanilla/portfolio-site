@@ -1,11 +1,11 @@
 import { LucideIcon } from 'lucide-react';
 
-type ContactBtnProps = {
+type IconAnchorProps = {
   icon: LucideIcon;
   url: string;
 };
 
-export default function ContactBtn({ icon, url }: ContactBtnProps) {
+export default function IconAnchor({ icon, url }: IconAnchorProps) {
   const Icon = icon;
 
   return (

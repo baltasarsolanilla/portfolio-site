@@ -1,16 +1,16 @@
 import { LucideIcon } from 'lucide-react';
 
-type IconContainerProps = {
+type IconBadge = {
   icon: LucideIcon;
   size?: number;
   className?: string;
 };
 
-export default function IconContainer({
+export default function IconBadge({
   icon,
   size = 32,
   className = '',
-}: IconContainerProps) {
+}: IconBadge) {
   const Icon = icon;
 
   return (
