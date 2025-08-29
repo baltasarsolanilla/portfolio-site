@@ -1,6 +1,6 @@
 'use client';
 
-import NavLink from './header-nav-link';
+import HeaderNavLink from './header-nav-link';
 import { usePathname } from 'next/navigation';
 
 const navItems = [
@@ -19,9 +19,9 @@ export default function HeaderNavBar() {
         const isActive = pathname === item.path;
 
         return (
-          <NavLink key={item.path} href={item.path} isActive={isActive}>
+          <HeaderNavLink key={item.path} href={item.path} isActive={isActive}>
             {item.name}
-          </NavLink>
+          </HeaderNavLink>
         );
       })}
     </>
