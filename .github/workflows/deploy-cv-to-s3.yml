@@ -24,4 +24,4 @@ jobs:
 
       - name: Upload CV to S3
         run: |
-          aws s3 cp ./public/resume.pdf s3://${{ secrets.S3_BUCKET }}/resume.pdf
+          aws s3 cp ./public/resume.pdf s3://${{ vars.S3_ASSETS }}/resume.pdf
