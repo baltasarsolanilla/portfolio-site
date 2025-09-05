@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Footer from '@/components/footer/footer';
+import { Footer } from '@/components/footer/footer';
 
 describe('Footer Component', () => {
   it('renders footer with correct copyright text', () => {
@@ -18,46 +18,6 @@ describe('Footer Component', () => {
     expect(footerElement).toBeInTheDocument();
   });
 
-  it('applies correct CSS classes for styling', () => {
-    render(<Footer />);
-
-    const footerElement = screen.getByRole('contentinfo');
-    expect(footerElement).toHaveClass('py-8', 'px-4', 'border-t');
-  });
-
-  it('applies correct container styling', () => {
-    render(<Footer />);
-
-    const footerElement = screen.getByRole('contentinfo');
-    const containerDiv = footerElement.querySelector('div');
-    expect(containerDiv).toHaveClass(
-      'max-w-7xl',
-      'text-center',
-      'text-gray-400'
-    );
-  });
-
-  it('renders paragraph with correct text content', () => {
-    render(<Footer />);
-
-    const paragraph = screen.getByText(
-      /2025 Baltasar Solanilla. All rights reserved./i
-    );
-    expect(paragraph.tagName).toBe('P');
-  });
-
-  it('has correct semantic structure', () => {
-    render(<Footer />);
-
-    const footerElement = screen.getByRole('contentinfo');
-    const containerDiv = footerElement.querySelector('div');
-    const paragraph = containerDiv?.querySelector('p');
-
-    expect(footerElement).toBeInTheDocument();
-    expect(containerDiv).toBeInTheDocument();
-    expect(paragraph).toBeInTheDocument();
-  });
-
   it('maintains consistent text content', () => {
     render(<Footer />);
 
@@ -74,5 +34,50 @@ describe('Footer Component', () => {
 
     const footerElement = screen.getByRole('contentinfo');
     expect(footerElement).toBeVisible();
+  });
+
+  it('renders social links', () => {
+    render(<Footer />);
+
+    const githubLink = screen.getByLabelText('GitHub');
+    const linkedinLink = screen.getByLabelText('LinkedIn');
+
+    expect(githubLink).toBeInTheDocument();
+    expect(linkedinLink).toBeInTheDocument();
+  });
+
+  it('social links have correct href attributes', () => {
+    render(<Footer />);
+
+    const githubLink = screen.getByLabelText('GitHub');
+    const linkedinLink = screen.getByLabelText('LinkedIn');
+
+    expect(githubLink).toHaveAttribute(
+      'href',
+      'https://github.com/baltasarsolanilla'
+    );
+    expect(linkedinLink).toHaveAttribute(
+      'href',
+      'https://www.linkedin.com/in/baltasarsolanilla'
+    );
+  });
+
+  it('social links open in new tab', () => {
+    render(<Footer />);
+
+    const githubLink = screen.getByLabelText('GitHub');
+    const linkedinLink = screen.getByLabelText('LinkedIn');
+
+    expect(githubLink).toHaveAttribute('target', '_blank');
+    expect(linkedinLink).toHaveAttribute('target', '_blank');
+    expect(githubLink).toHaveAttribute('rel', 'noopener noreferrer');
+    expect(linkedinLink).toHaveAttribute('rel', 'noopener noreferrer');
+  });
+
+  it('renders correct number of social links', () => {
+    render(<Footer />);
+
+    const socialLinks = screen.getAllByRole('link');
+    expect(socialLinks).toHaveLength(2);
   });
 });
