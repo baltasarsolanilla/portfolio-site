@@ -1,7 +1,7 @@
 'use client';
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useResumeDownload } from '@/hooks/useResumeDownload';
+import { Download } from 'lucide-react';
 
 export default function DownloadResumeBtn() {
   const { downloadResume, loading, error } = useResumeDownload();
@@ -9,12 +9,12 @@ export default function DownloadResumeBtn() {
   return (
     <>
       <Button
-        size="lg"
         variant="outline"
-        className="border-white/30 text-white hover:bg-white/10 bg-purple-900"
+        className="border-border hover:border-primary/50 hover:bg-surface group"
         onClick={downloadResume}
       >
-        {loading ? 'Preparing...' : 'Download Resume'}
+        <Download className="mr-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
+        {loading ? 'Preparing...' : 'Download CV'}
       </Button>
       {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
     </>
