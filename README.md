@@ -30,17 +30,16 @@ The main goal of this portfolio site is to showcase my skills and enthusiasm for
 - S3 Bucket
 - Server-side rendering for certain pages
 
+**CI/CD**
+- GitHub Actions
+- Serverless deployment via S3 + CloudFront
+
 **AI / Tools**
 
 - Cursor
 - Claude
 - ChatGPT
 - Lovable
-
-**CI/CD**
-
-- GitHub Actions
-- Serverless deployment via S3 + CloudFront
 
 ## Features
 
