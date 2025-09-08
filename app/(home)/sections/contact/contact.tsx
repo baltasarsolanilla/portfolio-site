@@ -11,6 +11,11 @@ import { Label } from '@/components/ui/label';
 import { SectionContainer } from '@/components/common/section-container';
 import { SOCIAL_LINKS } from '@/lib/constants/common';
 import type { ContactFormData } from '@/types';
+import { sendEmail } from '@/lib/api/sendEmail';
+import {
+  errorToast,
+  successToast,
+} from '@/components/providers/toast-provider';
 
 export const Contact = () => {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -24,10 +29,12 @@ export const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    // TODO: add toast
+    try {
+      await sendEmail();
+      successToast('Message sent successfully.');
+    } catch (error) {
+      errorToast('Something went wrong — please try again.');
+    }
 
     setFormData({ name: '', email: '', message: '' });
     setIsSubmitting(false);
