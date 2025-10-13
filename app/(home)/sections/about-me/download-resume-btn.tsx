@@ -10,7 +10,7 @@ export default function DownloadResumeBtn() {
     <>
       <Button
         variant="outline"
-        className="border-border hover:border-primary/50 hover:bg-surface group"
+        className="border-border hover:border-accent/50 hover:text-accent group"
         onClick={downloadResume}
       >
         <Download className="mr-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />

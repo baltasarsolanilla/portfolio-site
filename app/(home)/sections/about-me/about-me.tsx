@@ -2,7 +2,7 @@
 
 import avatarImg from '@/assets/avatarImg.png';
 import { SectionContainer } from '@/components/common/section-container';
-import { Card } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { TECH_STACK } from '@/constants/tech-stack-constants';
 import type { TechSkill } from '@/types';
 import { motion } from 'framer-motion';
@@ -108,15 +108,14 @@ export const AboutMe = () => {
 
               <div className="flex flex-row flex-wrap gap-4">
                 {techSkills.map((skill) => (
-                  <motion.div
-                    key={skill.name}
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Card className="tech-badge group cursor-pointer text-center p-4 h-full">
+                  <motion.div key={skill.name} variants={itemVariants}>
+                    <Badge
+                      key={skill.name}
+                      variant="secondary"
+                      className="bg-surface text-foreground cursor-default"
+                    >
                       <div className="text-sm font-medium">{skill.name}</div>
-                    </Card>
+                    </Badge>
                   </motion.div>
                 ))}
               </div>

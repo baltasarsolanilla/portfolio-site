@@ -46,7 +46,7 @@ const projects: Project[] = [
       CLOUDFRONT,
       GITHUB_ACTIONS,
     ],
-    liveUrl: '',
+    liveUrl: 'https://d2uxrwionurg14.cloudfront.net/',
     githubUrl: 'https://github.com/baltasarsolanilla/portfolio-site',
     featured: true,
   },
@@ -169,7 +169,7 @@ export const MyWork = () => {
                         <Badge
                           key={tech}
                           variant="secondary"
-                          className="bg-surface text-foreground hover:bg-surface-elevated"
+                          className="bg-surface text-foreground hover:bg-surface-elevated cursor-default"
                         >
                           {tech}
                         </Badge>
@@ -182,7 +182,7 @@ export const MyWork = () => {
                           <Button
                             size="sm"
                             variant="ghost"
-                            className="text-primary hover:text-primary-hover p-0 h-auto"
+                            className="text-muted-foreground hover:text-foreground p-1 h-auto"
                             asChild
                           >
                             <a
