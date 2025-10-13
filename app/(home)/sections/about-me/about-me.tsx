@@ -1,22 +1,37 @@
 'use client';
 
+import avatarImg from '@/assets/avatarImg.png';
+import { SectionContainer } from '@/components/common/section-container';
+import { Badge } from '@/components/ui/badge';
+import { TECH_STACK } from '@/constants/tech-stack-constants';
+import type { TechSkill } from '@/types';
 import { motion } from 'framer-motion';
 import { Code2, Wrench, Zap } from 'lucide-react';
-import { Card } from '@/components/ui/card';
-import { SectionContainer } from '@/components/common/section-container';
-import type { TechSkill } from '@/types';
-import DownloadResumeBtn from './download-resume-btn';
 import Image from 'next/image';
-import avatarImg from '@/assets/avatarImg.png';
+import DownloadResumeBtn from './download-resume-btn';
+
+const {
+  REACT,
+  TYPESCRIPT,
+  NEXTJS,
+  TAILWIND,
+  NODEJS,
+  FIGMA,
+  GIT,
+  POSTGRESQL,
+  AWS,
+} = TECH_STACK;
 
 const techSkills: TechSkill[] = [
-  { name: 'React', icon: '⚛️', category: 'frontend' },
-  { name: 'TypeScript', icon: '🔷', category: 'frontend' },
-  { name: 'Next.js', icon: '▲', category: 'frontend' },
-  { name: 'Tailwind CSS', icon: '🎨', category: 'frontend' },
-  { name: 'Node.js', icon: '🟢', category: 'backend' },
-  { name: 'Figma', icon: '🎨', category: 'design' },
-  { name: 'Git', icon: '📝', category: 'tools' },
+  { name: REACT, category: 'frontend' },
+  { name: TYPESCRIPT, category: 'frontend' },
+  { name: NEXTJS, category: 'frontend' },
+  { name: TAILWIND, category: 'frontend' },
+  { name: NODEJS, category: 'backend' },
+  { name: POSTGRESQL, category: 'backend' },
+  { name: FIGMA, category: 'design' },
+  { name: GIT, category: 'tools' },
+  { name: AWS, category: 'tools' },
 ];
 
 export const AboutMe = () => {
@@ -93,15 +108,14 @@ export const AboutMe = () => {
 
               <div className="flex flex-row flex-wrap gap-4">
                 {techSkills.map((skill) => (
-                  <motion.div
-                    key={skill.name}
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Card className="tech-badge group cursor-pointer text-center p-4 h-full">
+                  <motion.div key={skill.name} variants={itemVariants}>
+                    <Badge
+                      key={skill.name}
+                      variant="secondary"
+                      className="bg-surface text-foreground cursor-default"
+                    >
                       <div className="text-sm font-medium">{skill.name}</div>
-                    </Card>
+                    </Badge>
                   </motion.div>
                 ))}
               </div>

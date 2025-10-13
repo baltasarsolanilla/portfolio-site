@@ -1,38 +1,74 @@
 'use client';
-import { motion } from 'framer-motion';
-import { ExternalLink, Github, ArrowRight } from 'lucide-react';
+import { SectionContainer } from '@/components/common/section-container';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { SectionContainer } from '@/components/common/section-container';
 import type { Project } from '@/types';
+import { motion } from 'framer-motion';
+import { ExternalLink } from 'lucide-react';
 
-import ecommerceImg from '@/assets/project-ecommerce.jpg';
-import taskManagerImg from '@/assets/project-taskmanager.jpg';
+import portfolioImg from '@/assets/projects/project-portfolio.png';
+import whatsappImg from '@/assets/projects/project-whatsapp.jpg';
+import { TECH_STACK } from '@/constants/tech-stack-constants';
 import Image from 'next/image';
+import { ProjectLink } from './project-link';
+
+const {
+  NEXTJS,
+  TYPESCRIPT,
+  TAILWIND,
+  NODEJS,
+  PRISMA,
+  POSTGRESQL,
+  AWS_LAMBDA,
+  API_GATEWAY,
+  S3,
+  CLOUDFRONT,
+  AWS_LIGHTSAIL_DOCKER,
+  EVOLUTION_API,
+  GITHUB_ACTIONS,
+} = TECH_STACK;
 
 const projects: Project[] = [
   {
     id: '1',
-    title: 'Project title',
+    title: 'My Portfolio',
     description:
-      'Irure tempor occaecat adipisicing labore id labore. Amet culpa fugiat nulla ex est incididunt nostrud ut. Do ullamco aliqua ullamco amet. Commodo cupidatat irure incididunt exercitation dolor qui nulla voluptate elit.',
-    image: ecommerceImg.src,
-    techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Chart.js', 'Node.js'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com',
+      'Modern, TypeScript-powered personal portfolio website designed to highlight my development skills, projects, and experience.',
+    image: portfolioImg.src,
+    techStack: [
+      NEXTJS,
+      TYPESCRIPT,
+      TAILWIND,
+      AWS_LAMBDA,
+      API_GATEWAY,
+      S3,
+      CLOUDFRONT,
+      GITHUB_ACTIONS,
+    ],
+    liveUrl: 'https://d2uxrwionurg14.cloudfront.net/',
+    githubUrl: 'https://github.com/baltasarsolanilla/portfolio-site',
     featured: true,
   },
   {
     id: '2',
-    title: 'Project title',
+    title: 'WhatsApp Group Manager Bot',
     description:
-      'Laborum laborum duis cupidatat aliqua anim sunt fugiat. Pariatur exercitation commodo minim consequat duis ut qui elit voluptate do sit ad exercitation. Occaecat culpa mollit ad est deserunt in fugiat elit ad adipisicing voluptate. Sunt exercitation ea culpa nisi id laborum veniam in in. Nostrud esse aliquip deserunt quis laborum occaecat. Ut occaecat minim ea veniam esse eiusmod pariatur id.',
-    image: taskManagerImg.src,
-    techStack: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'Socket.io'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com',
-    featured: false,
+      'Automated WhatsApp group management system with real-time blacklist enforcement, membership tracking, and webhook-based event processing.',
+    image: whatsappImg.src,
+    techStack: [
+      NODEJS,
+      TYPESCRIPT,
+      PRISMA,
+      POSTGRESQL,
+      EVOLUTION_API,
+      AWS_LIGHTSAIL_DOCKER,
+      GITHUB_ACTIONS,
+    ],
+    liveUrl: '',
+    githubUrl:
+      'https://github.com/baltasarsolanilla/whatsapp-group-manager-bot',
+    featured: true,
   },
 ];
 
@@ -72,8 +108,8 @@ export const MyWork = () => {
             Featured <span className="gradient-text">Projects</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A selection of projects that showcase my skills in frontend
-            development and UI/UX design
+            A selection of projects that showcase my skills in software
+            development
           </p>
         </motion.div>
 
@@ -107,10 +143,10 @@ export const MyWork = () => {
                         <Button
                           size="sm"
                           variant="outline"
-                          className="border-border hover:border-primary/50"
+                          className="border-border hover:border-accent/50 hover:text-accent  text-muted-foreground"
+                          asChild
                         >
-                          <Github size={16} className="mr-1" />
-                          Code
+                          <ProjectLink githubUrl={project.githubUrl} />
                         </Button>
                       )}
                     </div>
@@ -133,7 +169,7 @@ export const MyWork = () => {
                         <Badge
                           key={tech}
                           variant="secondary"
-                          className="bg-surface text-foreground hover:bg-surface-elevated"
+                          className="bg-surface text-foreground hover:bg-surface-elevated cursor-default"
                         >
                           {tech}
                         </Badge>
@@ -146,7 +182,7 @@ export const MyWork = () => {
                           <Button
                             size="sm"
                             variant="ghost"
-                            className="text-primary hover:text-primary-hover p-0 h-auto"
+                            className="text-muted-foreground hover:text-foreground p-1 h-auto"
                             asChild
                           >
                             <a
@@ -163,25 +199,13 @@ export const MyWork = () => {
                           <Button
                             size="sm"
                             variant="ghost"
-                            className="text-muted-foreground hover:text-foreground p-0 h-auto"
+                            className="text-muted-foreground hover:text-foreground p-1 h-auto"
                             asChild
                           >
-                            <a
-                              href={project.githubUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <Github size={16} className="mr-1" />
-                              View Code
-                            </a>
+                            <ProjectLink githubUrl={project.githubUrl} />
                           </Button>
                         )}
                       </div>
-
-                      <ArrowRight
-                        size={20}
-                        className="text-primary transform group-hover:translate-x-1 transition-transform duration-200"
-                      />
                     </div>
                   </div>
                 </CardContent>

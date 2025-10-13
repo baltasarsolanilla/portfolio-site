@@ -96,8 +96,7 @@ code {
 }
 
 .hero-button {
-  @apply bg-gradient-to-r from-primary to-primary-hover hover:from-primary-hover hover:to-primary
-         transition-transform duration-300 ease-out shadow-lg hover:shadow-xl
+  @apply bg-gradient-to-r from-primary to-accent transition-transform duration-300 ease-out shadow-lg hover:shadow-xl
          hover:shadow-primary/25 hover:scale-[1.02];
 }
 
