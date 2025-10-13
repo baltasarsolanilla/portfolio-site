@@ -1,10 +1,10 @@
 'use client';
+import heroImage from '@/assets/hero-bg.jpg';
+import { AnimatedText } from '@/components/common/animated-text';
+import { SectionContainer } from '@/components/common/section-container';
+import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { SectionContainer } from '@/components/common/section-container';
-import { AnimatedText } from '@/components/common/animated-text';
-import heroImage from '@/assets/hero-bg.jpg';
 import Image from 'next/image';
 
 export const Hero = () => {
@@ -75,7 +75,7 @@ export const Hero = () => {
             variant="outline"
             onClick={scrollToContact}
             size="lg"
-            className="border-border hover:border-primary/50 hover:bg-surface"
+            className="border-border hover:border-primary/50 hover:bg-surface hover:text-white"
           >
             Get In Touch
           </Button>
