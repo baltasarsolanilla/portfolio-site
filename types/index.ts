@@ -5,7 +5,6 @@ export interface NavItem {
 
 export interface TechSkill {
   name: string;
-  icon: string;
   category: 'frontend' | 'backend' | 'tools' | 'design';
 }
 
