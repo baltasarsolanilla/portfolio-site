@@ -143,7 +143,7 @@ export const MyWork = () => {
                         <Button
                           size="sm"
                           variant="outline"
-                          className="border-border hover:border-primary/50"
+                          className="border-border hover:border-accent/50 hover:text-accent  text-muted-foreground"
                           asChild
                         >
                           <ProjectLink githubUrl={project.githubUrl} />
@@ -199,7 +199,7 @@ export const MyWork = () => {
                           <Button
                             size="sm"
                             variant="ghost"
-                            className="text-muted-foreground hover:text-foreground p-0 h-auto"
+                            className="text-muted-foreground hover:text-foreground p-1 h-auto"
                             asChild
                           >
                             <ProjectLink githubUrl={project.githubUrl} />
