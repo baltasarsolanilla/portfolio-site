@@ -5,13 +5,13 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import type { Project } from '@/types';
 import { motion } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
 
 import portfolioImg from '@/assets/projects/project-portfolio.png';
 import whatsappImg from '@/assets/projects/project-whatsapp.jpg';
 import { TECH_STACK } from '@/constants/tech-stack-constants';
+import { ExternalLink, Github } from 'lucide-react';
 import Image from 'next/image';
-import { ProjectLink } from './project-link';
+import { MyWorkLink } from './my-work-link';
 
 const {
   NEXTJS,
@@ -134,9 +134,12 @@ export const MyWork = () => {
                   <div className="absolute bottom-4 left-4 right-4 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
                     <div className="flex gap-2">
                       {project.liveUrl && (
-                        <Button size="sm" className="hero-button">
-                          <ExternalLink size={16} className="mr-1" />
-                          Live Demo
+                        <Button size="sm" className="hero-button" asChild>
+                          <MyWorkLink
+                            url={project.liveUrl}
+                            label="Live Demo"
+                            icon={ExternalLink}
+                          />
                         </Button>
                       )}
                       {project.githubUrl && (
@@ -146,7 +149,11 @@ export const MyWork = () => {
                           className="border-border hover:border-accent/50 hover:text-accent  text-muted-foreground"
                           asChild
                         >
-                          <ProjectLink githubUrl={project.githubUrl} />
+                          <MyWorkLink
+                            url={project.githubUrl}
+                            label="Code"
+                            icon={Github}
+                          />
                         </Button>
                       )}
                     </div>
@@ -185,14 +192,11 @@ export const MyWork = () => {
                             className="text-muted-foreground hover:text-foreground p-1 h-auto"
                             asChild
                           >
-                            <a
-                              href={project.liveUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <ExternalLink size={16} className="mr-1" />
-                              Live Demo
-                            </a>
+                            <MyWorkLink
+                              url={project.liveUrl}
+                              label="Live Demo"
+                              icon={ExternalLink}
+                            />
                           </Button>
                         )}
                         {project.githubUrl && (
@@ -202,7 +206,11 @@ export const MyWork = () => {
                             className="text-muted-foreground hover:text-foreground p-1 h-auto"
                             asChild
                           >
-                            <ProjectLink githubUrl={project.githubUrl} />
+                            <MyWorkLink
+                              url={project.githubUrl}
+                              label="Code"
+                              icon={Github}
+                            />
                           </Button>
                         )}
                       </div>
