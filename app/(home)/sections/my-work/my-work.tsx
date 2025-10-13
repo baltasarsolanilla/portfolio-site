@@ -108,8 +108,8 @@ export const MyWork = () => {
             Featured <span className="gradient-text">Projects</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A selection of projects that showcase my skills in frontend
-            development and UI/UX design
+            A selection of projects that showcase my skills in software
+            development
           </p>
         </motion.div>
 
