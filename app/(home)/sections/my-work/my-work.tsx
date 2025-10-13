@@ -7,8 +7,8 @@ import type { Project } from '@/types';
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 
-import portfolioImg from '@/assets/project-portfolio.png';
-import taskManagerImg from '@/assets/project-taskmanager.jpg';
+import portfolioImg from '@/assets/projects/project-portfolio.png';
+import whatsappImg from '@/assets/projects/project-whatsapp.jpg';
 import { TECH_STACK } from '@/constants/tech-stack-constants';
 import Image from 'next/image';
 import { ProjectLink } from './project-link';
@@ -55,7 +55,7 @@ const projects: Project[] = [
     title: 'WhatsApp Group Manager Bot',
     description:
       'Automated WhatsApp group management system with real-time blacklist enforcement, membership tracking, and webhook-based event processing.',
-    image: taskManagerImg.src,
+    image: whatsappImg.src,
     techStack: [
       NODEJS,
       TYPESCRIPT,
