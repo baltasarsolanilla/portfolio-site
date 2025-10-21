@@ -1,5 +1,6 @@
 // Learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
+import React from 'react';
 
 // Mock Next.js router
 jest.mock('next/router', () => ({
@@ -44,6 +45,32 @@ jest.mock('next/navigation', () => ({
     return '/';
   },
 }));
+
+// Mock next/image to behave like a standard img in tests
+jest.mock('next/image', () => {
+  return {
+    __esModule: true,
+    default: (props: React.ImgHTMLAttributes<HTMLImageElement>) =>
+      React.createElement('img', { ...props }),
+  };
+});
+
+// Mock next-themes to avoid ThemeProvider requirements
+jest.mock('next-themes', () => ({
+  useTheme: () => ({ theme: 'light' }),
+}));
+
+// Provide window.open mock
+Object.defineProperty(window, 'open', {
+  writable: true,
+  value: jest.fn(),
+});
+
+// Provide scrollIntoView mock
+Object.defineProperty(Element.prototype, 'scrollIntoView', {
+  writable: true,
+  value: jest.fn(),
+});
 
 // Mock Intersection Observer
 global.IntersectionObserver = class IntersectionObserver {
@@ -93,10 +120,13 @@ beforeAll(() => {
     ) {
       return;
     }
-    originalError.call(console, ...args);
+    // forwarding console.error binding in test env
+    (originalError as any).call(console, ...args);
   };
 });
 
 afterAll(() => {
-  console.error = originalError;
+  // restoring console.error original binding
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (console as any).error = originalError;
 });
