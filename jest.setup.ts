@@ -121,6 +121,7 @@ beforeAll(() => {
       return;
     }
     // forwarding console.error binding in test env
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (originalError as any).call(console, ...args);
   };
 });

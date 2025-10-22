@@ -32,7 +32,7 @@ export const Contact = () => {
     try {
       await sendEmail();
       successToast('Message sent successfully.');
-    } catch (error) {
+    } catch {
       errorToast('Something went wrong — please try again.');
     }
 
